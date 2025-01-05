@@ -26,8 +26,12 @@ export async function POST(req : NextRequest) {
 }
 
 export async function GET() {
+    const ITEM_PER_PAGE = 2;
   try {
-    const todos = await prisma.todo.findMany();
+    const todos = await prisma.todo.findMany({
+        orderBy: {createdAt : 'desc'},
+        take: ITEM_PER_PAGE,
+    });
 
     return NextResponse.json({
         status : 200,
