@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { NextRequest, NextResponse } from "next/server"
 
 export default function Home() {
   const [title, setTitle] = useState('')
